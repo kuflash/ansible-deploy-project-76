@@ -1,0 +1,5 @@
+---
+roles:
+  - name: geerlingguy.pip
+    src: https://github.com/geerlingguy/ansible-role-pip
+    version: "2.2.0"
