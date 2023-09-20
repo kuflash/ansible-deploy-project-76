@@ -8,5 +8,8 @@ roles:
     src: https://github.com/DataDog/ansible-datadog
 
 collections:
+  - name: community.docker
+    src: https://github.com/ansible-collections/community.docker
+
   - name: datadog.dd
     src: https://github.com/ansible-collections/Datadog
