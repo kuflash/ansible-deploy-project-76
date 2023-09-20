@@ -24,7 +24,8 @@
     - name: prepare environment file
       ansible.builtin.template:
         src: ./templates/.env.redmine.j2
-        dest:  "{{ansible_env.HOME}}/.env.redmine"
+        dest:  "{{ ansible_env.HOME }}/.env.redmine"
+        mode: '660'
       become: yes
       tags: [deploy]
 
@@ -34,14 +35,14 @@
         image: redmine
         ports:
           - "80:3000"
-        env_file: "{{ansible_env.HOME}}/.env.redmine"
+        env_file: "{{ ansible_env.HOME }}/.env.redmine"
       tags: [deploy]
 
     - name: setup datadog
       import_role:
         name: datadog.dd.agent
       vars:
-        datadog_api_key: "{{DATADOG_API_KEY}}"
+        datadog_api_key: "{{ DATADOG_API_KEY }}"
         datadog_site: datadoghq.eu
         datadog_checks:
           http_status:
