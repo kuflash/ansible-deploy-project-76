@@ -50,4 +50,5 @@
               - name: Main site
                 url: http://kuflash-hexlet-deploy.site/
       become: yes
+      when: "'webservers' in group_names"
       tags: [monitoring]
