@@ -36,3 +36,18 @@
           - "80:3000"
         env_file: "{{ansible_env.HOME}}/.env.redmine"
       tags: [deploy]
+
+    - name: setup datadog
+      import_role:
+        name: datadog.dd.agent
+      vars:
+        datadog_api_key: "{{DATADOG_API_KEY}}"
+        datadog_site: datadoghq.eu
+        datadog_checks:
+          http_status:
+            init_config:
+            instances:
+              - name: Main site
+                url: http://kuflash-hexlet-deploy.site/
+      become: yes
+      tags: [monitoring]

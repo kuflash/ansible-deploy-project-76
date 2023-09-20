@@ -7,5 +7,8 @@ edit-vault:
 setup-servers:
 	ansible-playbook ./playbook.yml -i ./inventory.ini -t prepare --vault-password-file ./secrets/vault-password
 
+setup-monitoring:
+	ansible-playbook ./playbook.yml -i ./inventory.ini -t monitoring --vault-password-file ./secrets/vault-password
+
 deploy:
 	ansible-playbook ./playbook.yml -i ./inventory.ini -t deploy --vault-password-file ./secrets/vault-password

@@ -3,3 +3,10 @@ roles:
   - name: geerlingguy.pip
     src: https://github.com/geerlingguy/ansible-role-pip
     version: "2.2.0"
+  
+  - name: datadog.datadog
+    src: https://github.com/DataDog/ansible-datadog
+
+collections:
+  - name: datadog.dd
+    src: https://github.com/ansible-collections/Datadog
