@@ -21,4 +21,18 @@
           - name: docker
       tags: [prepare]
 
+    - name: prepare environment file
+      ansible.builtin.template:
+        src: ./templates/.env.redmine.j2
+        dest:  "{{ansible_env.HOME}}/.env.redmine"
       become: yes
+      tags: [deploy]
+
+    - name: start redmine
+      community.docker.docker_container:
+        name: redmine
+        image: redmine
+        ports:
+          - "80:3000"
+        env_file: "{{ansible_env.HOME}}/.env.redmine"
+      tags: [deploy]

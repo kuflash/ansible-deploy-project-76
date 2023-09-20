@@ -15,3 +15,13 @@ Prepare all webservers
 ```sh
 make setup-servers
 ```
+
+Deploy redmine
+
+1. Prepare file `./secrets/vault-password` with vault password
+2. Run command for deploy application
+3. Open application by http://kuflash-hexlet-deploy.site/
+
+```sh
+make deploy
+```
